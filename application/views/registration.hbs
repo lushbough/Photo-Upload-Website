@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <!-- -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <title>Registration</title>
+</head>
+<body>
+<header id="registerTitle" class="pageTitle">
+    <h1> Registration</h1>
+</header>
+
+<nav><ul>
+    <strong><li><a href="registration.hbs"> Registration</a></li>
+        <a href="postimage.hbs">  <li>Post Image</li></a>
+        <a href="imagepost.hbs">  <li>Image Post</a></li>
+        <a href="login.hbs">  <li>Login</a></li>
+    </strong>
+</ul></nav>
+
+    <form>
+        <fieldset><legend>new user information</legend>
+            <label for="username">username: </label>
+            <input type="text" id="username" name="username" required /><br />
+
+            <label for="email">email: </label>
+            <input type="text" id="email" name="email" placeholder="ex: jondoe@aol.com" required /><br />
+
+            <label for="password">password: </label>
+            <input type="password" id="password" name="password" required /><br />
+            <label for="password">confirm password: </label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+        <h3>register</h3>
+            <input type="checkbox" name="checkbox" value="check" id="age" required /> I confirm that I am 13+ years of age. <br />
+            <input type="checkbox" name="checkbox" value="check" id="agree" required /> I have read and agree with the <a href="" target="_blank"> TOS and Privacy Rules</a><br />
+        </fieldset>
+        <br />
+            <button id="submit" type="submit">submit</button>
+            <button id="reset" type="reset">reset</button>
+        <br />
+    </form>
+
+
+<footer>Copyright 2020<br />
+San Francisco State University <br />
+William Lushbough <br />
+</footer>
+</body>
+</html>

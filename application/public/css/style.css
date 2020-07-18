@@ -1,0 +1,105 @@
+html {
+    font-family: Arial;
+    text-emphasis-color: red;
+    color: red;
+    background-color: red;
+
+}
+label{
+    border-color: red;
+    border-width: 2px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    display: block;
+}
+a:link {
+    color: red;
+}
+a:visited {
+    color: red;
+}
+a:hover {
+    color: ghostwhite;
+}
+a:active {
+    color: red;
+}
+header{
+    background-color: yellow;
+    font-size: x-large;
+    color: red;
+    text-align: center;
+
+}
+
+nav {
+    align: center;
+    background-color: yellow;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: yellow;
+    border-color: red;
+    border-style: dashed;
+    border-width: 8px;
+    align-content: center;
+    align: center;
+    text-align: center;
+    width: 800px;
+    margin: auto;
+
+}
+
+form {
+    background-color: yellow;
+
+}
+
+label{
+    align: center;
+
+
+}
+
+fieldset {
+    border: none;
+    text-align: center;
+    background-color: yellow;
+
+}
+
+section #submit {
+    background-color: yellow;
+
+}
+
+footer {
+    text-align: center;
+    background-color: yellow;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+#posts {
+    text-align: center;
+    background-color: yellow;
+    color: red;
+}
+#submit{
+    background-color: red;
+    color: yellow;
+}
+#reset{
+    background-color: blue;
+    color: yellow;
+}
+
