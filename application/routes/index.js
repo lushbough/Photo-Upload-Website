@@ -5,8 +5,16 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index');
 });
-
-router.get('/login',(req, res, next) => {
+router.get('/login.hbs',(req, res, next)=> {
   res.render("login");
-})
+});
+router.get('/registration.hbs',(req, res, next) => {
+  res.render("registration");
+});
+router.get('/postimage.hbs',(req, res, next) => {
+  res.render("postimage");
+});
+router.get('/imagepost.hbs',(req, res, next) => {
+  res.render("imagepost");
+});
 module.exports = router;
