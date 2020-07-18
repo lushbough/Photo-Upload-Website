@@ -9,40 +9,50 @@ label{
     border-color: red;
     border-width: 2px;
 }
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+ul{
+    display: flex;
+    list-style: none;
+    background-color: yellow;
 }
 
-li a {
-    display: block;
+li{
+    background-color: yellow;
+    padding: 10px;
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: blue;
 }
 a:link {
-    color: red;
+    color: white;
 }
-a:visited {
-    color: red;
-}
+
 a:hover {
     color: ghostwhite;
 }
 a:active {
+    color: blue;
+}
+a:visited{
     color: red;
 }
+.active {
+    background-color: blue;
+}
+
 header{
     background-color: yellow;
     font-size: x-large;
     color: red;
     text-align: center;
 
-}
-
-nav {
-    align: center;
-    background-color: yellow;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 body {
