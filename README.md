@@ -13,7 +13,13 @@ Please follow the instructions below and fill in the information requested when 
 | Student Name  | William Lushbough     |
 | Student ID    | 920631410       |
 | Student Email | wlushbough@mail.sfsu.edu    |
+| Link Web App | localhost:3000    |
 
+Need "NPM i install", "npm i mysql2", ""
+
+database credentials:
+user:"photoappuser"
+password:"1776"
 
 
 # Build/Run Instructions

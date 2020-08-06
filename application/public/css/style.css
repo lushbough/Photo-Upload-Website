@@ -31,11 +31,11 @@ li a:hover {
     background-color: blue;
 }
 a:link {
-    color: white;
+    color: red;
 }
 
 a:hover {
-    color: ghostwhite;
+    color: blue;
 }
 a:active {
     color: blue;
@@ -97,6 +97,19 @@ footer {
     margin-top: 20px;
     margin-bottom: 10px;
 
+}
+
+#flash-message{
+    align-content: center;
+    background-color: white;
+    color: red;
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,0);
+}
+#flash-message div {
+    text-align: center;
 }
 
 #posts {
