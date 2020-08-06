@@ -5,22 +5,18 @@ var logger = require('morgan');
 var sessions = require('express-session');
 var mysqlSession = require('express-mysql-session')(sessions);
 var flash = require('express-flash');
-
-
 var handlebars = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var postsRouter = require('./routes/posts');
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
 var requestPrint = require('./helpers/debug/debugprinters').requestPrint;
-var successPrint = require('./helpers/debug/debugprinters').successPrint;
 
 
 
 
-var dbRouter = require('./routes/dbtest');
 
 var app = express();
-
 app.engine(
     "hbs",
     handlebars({
@@ -55,16 +51,16 @@ app.use(sessions({
     store: mysqlSessionStore,
     resave: false,
     saveUninitialized: false
-}))
+}));
 
 app.use(flash());
-
 app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
+
 app.use((req, res, next)=> {
     requestPrint(req.url);
     next();
@@ -79,21 +75,14 @@ app.use((req, res, next) => {
 })
 
 
-app.use('/', indexRouter);
-app.use('/dbtest', dbRouter);
-app.use('/users', usersRouter);
-
-
-//app.use((err, req, res, next) => {
-   // res.status(500);
-  //  res.send('something went wrong with yo db');
-//});
-
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use('/posts', postsRouter);
 
 app.use((err, req, res, next) => {
     //errorPrint(err);
     console.log(err);
-    res.render('error', {err_message: err});
+    res.render("error", {err_message: err});
 });
 
 module.exports = app;

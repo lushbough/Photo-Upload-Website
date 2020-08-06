@@ -1,17 +1,12 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var db = require('../conf/database');
-var errorPrint = require('../helpers/debug/debugprinters').errorPrint;
-var successPrint = require('../helpers/debug/debugprinters').successPrint;
-var UserError = require('../helpers/error/UserError');
-var bcrypt = require('bcrypt');
+var db = require("../conf/database");
+const UserError = require("../helpers/error/UserError");
+const { successPrint, errorPrint} = require("../helpers/debug/debugprinters");
+var bcrypt = require("bcrypt");
 
 
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
 
 

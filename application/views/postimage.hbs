@@ -4,15 +4,15 @@
 </head>
 <div id="post">
 
-    <form>
+    <form id="post-image" method="POST" enctype="multipart/form-data" action="/posts/createPost">
         <fieldset>
             <legend>New Post</legend>
             <label>Post Title</label>
-            <input type="text" required> <br/>
-            <label>Post Description</label> <input type="text"> <br/>
+            <input id="post-title" name="title" type="text" required placeholder="Post Title"> <br/>
+            <label>Post Description</label> <input id="post-desc" name="description" type="text" placeholder="post description here..."> <br/>
             <input type="checkbox" name="checkbox" value="check" id="age"/> I accept the <a href="" target="_blank">Acceptable
             Use Policy</a> for uploading images <br/>
-            <label>Upload Image</label> <input type="file"> <br/>
+            <label>Upload Image</label> <input id="img-select" name="uploadImage" type="file" required> <br/>
         </fieldset>
         <br/>
         <button id="submit" type="submit">submit</button>
