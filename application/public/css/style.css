@@ -148,13 +148,23 @@ footer {
     background-color: blue;
     color: yellow;
 }
-#main-content{
-    align-content: center;
-    align-items: stretch;
+#main-error{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-auto-rows: auto;
+    margin:20px auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: .15rem;
+}
+
+#main-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 1rem;
+
+}
+
+#home{
+    margin: auto;
 }
 
 .card {
@@ -178,4 +188,9 @@ footer {
     float: left;
     background-color: red;
     color: yellow;
+}
+
+img {
+    max-width:100%;
+    height:auto;
 }

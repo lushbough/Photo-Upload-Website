@@ -8,6 +8,7 @@
     <title>{{title}}</title>
 </head>
 <body>
+<div id="container" class="main">
 {{log this}}
 {{>header}}
 {{#if (emptyObject messages)}}
@@ -30,5 +31,6 @@
         }
     </script>
     {{/if}}
+</div>
 </body>
 </html>
