@@ -1,19 +1,21 @@
+<div id="apptitle" class="apptitle"><a href="/"><h1>Willie's Photo App!</h1></a></div>
 <nav id="navbar">
     <div class="search">
-        <input type="search" placeholder="search for images!"/>
+        <input id="search-text" type="search-text" placeholder="search for images!">
+        <i id="search-button" name="search-button" class="fa fa-search">search!</i>
     </div>
     <ul>
-    <li><a href="/registration.hbs"> Registration</a></li>
-    <li><a href="/postimage.hbs"> Post Image</a></li>
-    <li><a href="/imagepost.hbs"> Image Post</a></li>
+        <li><a href="/registration.hbs"> Registration</a></li>
+        <li><a href="/postimage.hbs"> Post Image</a></li>
+        <li><a href="/imagepost.hbs"> Image Post</a></li>
         {{#if logged}}
             <li>
-                <a id="logout-button" >
-                Log Out
-            </a></li>
+                <a id="logout-button">
+                    Log Out
+                </a></li>
         {{else}}
             <li><a href="/login.hbs"> Login</a></li>
         {{/if}}
-        </ul>
+    </ul>
 
 </nav>

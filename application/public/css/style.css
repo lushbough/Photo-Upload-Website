@@ -98,6 +98,29 @@ footer {
     margin-bottom: 10px;
 
 }
+.apptitle{
+    color: red;
+    padding: 40px;
+    text-align: center;
+    background: yellow;
+    font-size: 30px;
+}
+.apptitle a:hover {
+    background-color: blue;
+    color: red;
+}
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 #flash-message{
     align-content: center;
@@ -125,4 +148,34 @@ footer {
     background-color: blue;
     color: yellow;
 }
+#main-content{
+    align-content: center;
+    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
 
+.card {
+    align-content: center;
+    max-width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+.search-buttons{
+    cursor: pointer;
+    padding: 10px;
+    float: left;
+    background-color: red;
+    color: yellow;
+}
+
+#search-button{
+    cursor: pointer;
+    padding: 10px;
+    float: left;
+    background-color: red;
+    color: yellow;
+}

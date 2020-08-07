@@ -1,11 +1,14 @@
 <head><h1> View Post</h1>
 </head>
-<div id="posts">
-    <section id="postName"><h2>Post Name</h2></section>
-    <section id="postBody"><p>This is a sample post.</p></section>
-    <section id="userInfo"><small>Posted by Jon Doe<br /></small></section>
-    <section id="dateInfo"><small>@ 2:00pm 6/16/2020<br />
-    </small></section>
+<div id="info-message-grid">
+    <img id="image-post-image" src="/{{currentPost.photopath}}">
+    <div id="info">
+        <div id="postTitle"><h2>{{currentPost.title}}</h2></div>
+        <div id="postBody"><p>{{currentPost.description}}</p></div>
+        <div id="userInfo"><p>{{currentPost.username}}<br/></p></div>
+        <div id="dateInfo"><p>{{currentPost.created}}<br/>
+        </p></div>
+    </div>
 </div> <!--blog posts -->
-<br />
+<br/>
 
