@@ -1,20 +1,28 @@
-<div id="apptitle" class="apptitle"><a href="/"><h1>Willie's Photo App!</h1></a></div>
-<nav id="navbar">
+<div id="apptitle" class="apptitle"><h1>Willie's Photo App!</h1></div>
+<div id="navbar" class="navbar">
+
+
+        <a href="/"> <i id="nav-buttons" name="home-button" class="fas fa-home fa-5x"></i></a>
+
+        <a href="/registration.hbs"> <i id="nav-buttons" name="add-user" class="fas fa-user-plus fa-5x"></i></a>
+        <a href="/postimage.hbs"><i id="nav-buttons" name="upload button" class="fas fa-camera-retro fa-5x"></i></a>
+
     <div class="search">
         <input id="search-text" type="search-text" placeholder="search for images!">
-        <i id="search-button" name="search-button" class="fa fa-search">search!</i>
-    </div>
-    <ul>
-        <li><a href="/registration.hbs"> Registration</a></li>
-        <li><a href="/postimage.hbs"> Post Image</a></li>
-        {{#if logged}}
-            <li>
-                <a id="logout-button">
-                    Log Out
-                </a></li>
-        {{else}}
-            <li><a href="/login.hbs"> Login</a></li>
-        {{/if}}
-    </ul>
 
-</nav>
+        <i id="search-button" name="search-button" class="fa fa-search fa-5x"></i>
+    </div>
+
+
+
+        {{#if logged}}
+        <a id="logout-button">
+            <i id="nav-buttons" name="add-user" class="fas fa-user-check fa-5x"></i>
+        </a>
+    {{else}}
+        <a href="/login.hbs"><i id="nav-buttons" name="add-user" class="far fa-user fa-5x"></i>
+        </a>
+    {{/if}}
+
+
+</div>

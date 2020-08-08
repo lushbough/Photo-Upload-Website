@@ -1,14 +1,11 @@
 html {
     font-family: Arial;
     text-emphasis-color: red;
-    color: red;
-    background-color: red;
+    background-color: black;
+    color: blue;
 
 }
-label{
-    border-color: red;
-    border-width: 2px;
-}
+
 ul{
     display: flex;
     list-style: none;
@@ -19,16 +16,30 @@ li{
     background-color: yellow;
     padding: 10px;
 }
-nav {
+#navbar {
     display: flex;
     flex-direction: row;
+    flex-flow: nowrap;
+
     justify-content: center;
     align-items: center;
+    background-color: yellow;
+    border-color: yellow;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+a:visited {
+    color: red;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: blue;
+    background-color: black;
 }
 a:link {
     color: red;
@@ -40,32 +51,44 @@ a:hover {
 a:active {
     color: blue;
 }
-a:visited{
-    color: red;
-}
+
 .active {
-    background-color: blue;
+    background-color: black;
 }
 
 header{
-    background-color: yellow;
+    background-color: black;
     font-size: x-large;
     color: red;
     text-align: center;
+    border-radius: 25px;
 
+
+}
+
+.main{
+    background-color: yellow;
+    border-color: yellow;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 10px;
+    align-content: center;
+    align: center;
+    text-align: center;
+    width: auto;
+    margin: auto;
 }
 
 body {
     background-color: yellow;
-    border-color: red;
-    border-style: dashed;
-    border-width: 8px;
+    color: black;
     align-content: center;
     align: center;
     text-align: center;
     width: 800px;
+    height: auto;
     margin: auto;
-
+    border-radius: 25px;
 }
 
 form {
@@ -93,43 +116,40 @@ section #submit {
 
 footer {
     text-align: center;
-    background-color: yellow;
-    margin-top: 20px;
+    background-color: black;
+    margin-top: 30px;
     margin-bottom: 10px;
+    color: yellow;
+    border-radius: 25px;
+    box-shadow: 4px 5px 10px 0 gray;
 
 }
 .apptitle{
-    color: red;
+    color: yellow;
     padding: 40px;
     text-align: center;
-    background: yellow;
+    background: black;
+    border-radius: 25px;
     font-size: 30px;
-}
-.apptitle a:hover {
-    background-color: blue;
-    color: red;
+    box-shadow: 4px 5px 10px 0 gray;
+    margin-bottom: 20px;
+
+
 }
 
-.column {
-    float: left;
-    width: 25%;
-}
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+
 
 #flash-message{
     align-content: center;
-    background-color: white;
-    color: red;
+    background-color: black;
+    color: yellow;
     position: fixed;
     left: 50%;
     top: 25%;
     transform: translate(-50%,0);
+    border-radius: 25px;
+    box-shadow: yellow;
 }
 #flash-message div {
     text-align: center;
@@ -138,14 +158,14 @@ footer {
 #posts {
     text-align: center;
     background-color: yellow;
-    color: red;
+    color: black;
 }
 #submit{
-    background-color: red;
+    background-color: black;
     color: yellow;
 }
 #reset{
-    background-color: blue;
+    background-color: black;
     color: yellow;
 }
 #main-error{
@@ -160,7 +180,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 1rem;
-
 }
 
 #home{
@@ -172,25 +191,85 @@ footer {
     max-width: 200px;
     margin: auto;
     text-align: center;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    background-color: black;
+    border-radius: 25px;
+    color: yellow;
+    box-shadow: 4px 5px 10px 0 gray;
+
+}
+.card a:visited {
+    color: yellow;
 }
 
-.search-buttons{
+
+.card-image {
+    background-color: black;
+    border-radius: 25px;
+}
+.card-body{
+    color: yellow;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+}
+.card-text{
+    color: yellow;
+    background-color: black;
+
+}
+
+.card-title{
+    background-color: black;
+    color: yellow;
+    font-size: large;
+}
+
+.card a:link{
+    color: yellow;
+}
+.card a:active{
+    color: yellow;
+}
+.anchor-buttons a:visited{
+    color: yellow;
+}
+
+#nav-buttons:hover{
+border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#search-button:hover{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+#nav-buttons{
     cursor: pointer;
     padding: 10px;
     float: left;
-    background-color: red;
-    color: yellow;
+    background-color: yellow;
+    color: black;
+    box-shadow: 4px 5px 10px 0 gray
 }
 
 #search-button{
     cursor: pointer;
     padding: 10px;
     float: left;
-    background-color: red;
-    color: yellow;
+    background-color: yellow;
+    color: black;
+    box-shadow: 4px 5px 10px 0 gray
 }
+
 
 img {
     max-width:100%;
     height:auto;
 }
+
+

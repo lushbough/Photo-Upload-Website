@@ -1,5 +1,7 @@
 var express = require('express');
 var path = require('path');
+
+
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sessions = require('express-session');
@@ -12,7 +14,8 @@ var postsRouter = require('./routes/posts');
 var dbRouter = require('./routes/dbtest');
 var errorPrint = require('./helpers/debug/debugprinters').errorPrint;
 var requestPrint = require('./helpers/debug/debugprinters').requestPrint;
-
+// const { body, validationResult } = require('express-validator');
+var expressSession = require('express-session');
 
 var app = express();
 app.engine(
@@ -56,8 +59,13 @@ app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+//after body parser
+
+//app.use(expressValidator());
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
+app.use(expressSession({secret: 'max', saveUninitialized: false, resave: false}
+));
 
 app.use((req, res, next) => {
     requestPrint(req.url);

@@ -1,13 +1,19 @@
 var express = require('express');
 var router = express.Router();
+
+
+//above for validation
+
 var isLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
 var getRecentPosts = require('../middleware/postsmiddleware').getRecentPosts;
 var db = require("../conf/database");
 
 
+
 /* GET home page. */
 router.get('/', getRecentPosts, function(req, res, next) {
   res.render('index', {title:"Image App"});
+ // req.session.errors = null;
 }); //
 
 router.get('/login.hbs',(req, res, next) => {
@@ -23,6 +29,8 @@ router.get('/postimage.hbs', (req, res, next) => {
 });
 
 router.get('/post/:id(\\d+)', (req, res, next) => {
+
+
   let baseSQL = "SELECT u.username, p.title, p.description, p.photopath, p.created \
         FROM users u \
         JOIN posts p \
