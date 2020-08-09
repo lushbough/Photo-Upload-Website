@@ -1,12 +1,11 @@
-
 var express = require("express");
 var router = express.Router();
 var db = require("../conf/database");
+const UserModel = require('../models/Users');
 const UserError = require("../helpers/error/UserError");
 const {successPrint, errorPrint} = require("../helpers/debug/debugprinters");
 var bcrypt = require("bcrypt");
-const { body, validationResult } = require('express-validator');
-
+const {body, validationResult} = require('express-validator');
 
 
 router.post('/register', [body('email').isEmail(), body('password').isLength({min: 2})], (req, res, next) => {
@@ -15,70 +14,62 @@ router.post('/register', [body('email').isEmail(), body('password').isLength({mi
     let confirmPassword = req.body.password;
     let email = req.body.email; //ask for help
 
+
 //do server side validation on your own
 //no video
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-       // return res.status(400).json({errors:errors.array()});
+        // return res.status(400).json({errors:errors.array()});
         console.log(errors);
         res.redirect('/registration.hbs')
-    }else {
-
-        //if the User exists then lets check the email
-        db.execute("SELECT * FROM users WHERE username=?", [username]).then(
-            ([results, fields]) => {
-                if (results && results.length == 0) {
-                    return db.execute("SELECT * FROM users WHERE email=?", [email]);
-                } else {
-                    throw new UserError(
-                        "Registration Failed: Username already exists",
-                        "/registration.hbs",
-                        200
-                    );
-                }
-            })
-            .then(([results, fields]) => {
-                if (results && results.length == 0) {
-                    return bcrypt.hash(password, 15);
-                } else {
-                    throw new UserError(
-                        "Registration Failed: Email already exists",
-                        "/registration.hbs",
-                        200
-                    );
-                }
-            })
-            .then((hashedPassword) => {
-
-                let baseSQL = "INSERT INTO users(username, email, password, created) VALUES (?,?,?,now());"
-                return db.execute(baseSQL, [username, email, hashedPassword])
-
-            }).then(([results, fields]) => {
-            if (results && results.affectedRows) {
-                successPrint("user.js was created!!");
-                req.flash('success', 'User account has been made!');
-                res.redirect("/login.hbs"); //maybe hbs
+    }
+    UserModel.usernameExists(username)
+        .then((userDoesNameExist) => {
+            if (userDoesNameExist) {
+                throw new UserError(
+                    "Registration Failed: Username already exists",
+                    "/registration.hbs",
+                    200
+                );
             } else {
+                UserModel.emailExists(email);
+            }
+        })
+        .then((emailDoesExist) => {
+            if (emailDoesExist) {
+                throw new UserError(
+                    "Registration Failed: Email already exists",
+                    "/registration.hbs",
+                    200
+                );
+            } else {
+                return UserModel.create(username, password, email);
+            }
+        })
+        .then((createdUserId) => {
+            if (createdUserId < 0) {
                 throw new UserError(
                     "Server error, user could not be created",
                     "/registration.hbs",
                     500
                 );
+            } else {
+                successPrint("user.js was created!!");
+                req.flash('success', 'User account has been made!');
+                res.redirect("/login.hbs");
             }
         }).catch((err) => {
-            errorPrint("user could not be made", err);
-            if (err instanceof UserError) {
-                errorPrint(err.getMessage());
-                req.flash('error', err.getMessage());
-                res.status(err.getStatus());
-                res.redirect(err.getRedirectURL());
-            } else {
-                next(err);
-            }
-        });
-    }
+        errorPrint("user could not be made", err);
+        if (err instanceof UserError) {
+            errorPrint(err.getMessage());
+            req.flash('error', err.getMessage());
+            res.status(err.getStatus());
+            res.redirect(err.getRedirectURL());
+        } else {
+            next(err);
+        }
+    });
 });
-
 
 router.post('/login', [body('username').isLength({min: 1}), body('password').isLength({min: 2})], (req, res, next) => {
     let username = req.body.username;
@@ -90,26 +81,13 @@ router.post('/login', [body('username').isLength({min: 1}), body('password').isL
         // return res.status(400).json({errors:errors.array()});
         console.log(errors);
         res.redirect('/login.hbs')
-    }else {
-
-        let baseSQL = "SELECT id,username, password FROM users WHERE username=?;"
-        let userId;
-        db.execute(baseSQL, [username])
-            .then(([results, fields]) => {
-                if (results && results.length == 1) {
-                    let hashedPassword = results[0].password;
-                    userId = results[0].id; //or .id
-                    return bcrypt.compare(password, hashedPassword);
-                    //res.redirect('/');
-                } else {
-                    throw new UserError("invalid username and/or password!", "/login.hbs", 200);
-                }
-            })
-            .then((passwordsMatched) => {
-                if (passwordsMatched) {
+    } else {
+        UserModel.authenticate(username, password)
+            .then((loggedUserId) => {
+                if (loggedUserId > 0) {
                     successPrint(`User ${username} is logged in`);
                     req.session.username = username;
-                    req.session.userId = userId;
+                    req.session.userId = loggedUserId;
                     res.locals.logged = true;
                     req.flash('success', 'You have been successfully Logged in!');
                     res.redirect('/');
@@ -143,8 +121,6 @@ router.post('/logout', (req, res, next) => {
         }
     })
 });
-
-//do server side validation on your own
 
 module.exports = router;
 

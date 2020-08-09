@@ -20,7 +20,7 @@ database credentials:
 user:"photoappuser"
 password:"1776"
 
-database export
+database export ('/conf/csc317db')
 
 
 # Build/Run Instructions
@@ -31,9 +31,10 @@ npm start
 
 
 ## Build Instructions
-1. steps here
-2. steps here
+1. cd application
+2. npm i install
+3. npm i mysql2
+
 
 ## Run Instructions
-1. steps here
-2. steps here 
+1. npm start
