@@ -26,15 +26,12 @@ database export ('/conf/csc317db')
 # Build/Run Instructions
 cd application
 npm i install
-npm i mysql2
 npm start
 
 
 ## Build Instructions
 1. cd application
 2. npm i install
-3. npm i mysql2
-
 
 ## Run Instructions
 1. npm start
