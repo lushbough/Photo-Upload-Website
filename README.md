@@ -33,7 +33,8 @@ npm start
 
 
 ## Build Instructions
-1. cd application
+1. Clone this repo then open it in a terminal
+2. cd application
 2. npm i install
 
 ## Run Instructions
