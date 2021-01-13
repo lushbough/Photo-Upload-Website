@@ -1,6 +1,9 @@
 # CSC 317 Term Project
 
+Live site: https://lushbough.github.io/Photo-Upload-Website/
 ## Purpose
+
+
 
 This is an undergraduate assignment that uses nodejs, javascript, mySQL, express, and multer to create a photo app website similar to imgur. Users are allowed to register, login, and then upload images that are labeled as posts. Users can also search through posts. MySQL tables handles all of the posts and registered user information.
 
